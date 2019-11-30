@@ -1,0 +1,139 @@
+@import '../utilities/mixins';
+@import '../utilities/variables';
+
+.form {
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-rows: 0.75fr 1fr auto;
+	overflow: hidden;
+
+	//Media Queries
+
+	@include breakpoint-up(large) {
+		height: 90vh;
+		max-width: 35vw;
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+		border-radius: 5px;
+	}
+
+	/* Top of form styles */
+
+	&_section-top {
+		@include flexSpaceAround;
+
+		flex-direction: column;
+		padding: 2rem;
+
+		&-text {
+			text-align: center;
+		}
+	}
+	&_btns {
+		display: inherit;
+		width: 60%;
+		border-radius: 5px;
+		background: $base-green-light;
+		&-signin {
+			padding: 10px 15px;
+			border: none;
+			width: 50%;
+			border-top-left-radius: 3px;
+			border-bottom-left-radius: 3px;
+			cursor: pointer;
+			@include flexCenter;
+			text-decoration: none;
+			font-size: 1.5rem;
+			color: white;
+			transition: 0.2s ease-out;
+		}
+
+		&-signup {
+			padding: 10px 15px;
+			border: none;
+			width: 50%;
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+			cursor: pointer;
+			@include flexCenter;
+			text-decoration: none;
+			font-size: 1.5rem;
+			color: white;
+
+			transition: 0.2s ease-out;
+		}
+	}
+
+	/* middle of form styles */
+	&_section-middle {
+		padding: 2rem;
+	}
+
+	&_container {
+		height: 100%;
+		flex-direction: column;
+		@include flexSpaceAround;
+
+		&-top {
+			width: 100%;
+			flex-direction: column;
+			@include flexCenter;
+		}
+	}
+
+	&_input {
+		width: 80%;
+		margin: 1.5rem;
+		padding: 10px 5px;
+		border: none;
+		border-bottom: 2px solid $base-green;
+
+		&:invalid {
+			border-bottom: 2px solid red;
+		}
+	}
+
+	&_btn-submit {
+		width: 72%;
+		border: none;
+		border-radius: 3px;
+		padding: 10px 5px;
+		margin: 1.5rem;
+		cursor: pointer;
+		font-size: 1.25rem;
+		background: $base-green;
+		color: white;
+	}
+
+	/* bottom of form styles */
+
+	&_section-bottom {
+		@include flexCenter;
+
+		padding: 2rem;
+	}
+
+	&_Link {
+		font-size: 1.25rem;
+		@include flexSpaceAround;
+		flex-direction: column;
+	}
+}
+
+.active {
+	&-left {
+		background: $base-green;
+		border-top-right-radius: 10%;
+		border-bottom-right-radius: 10%;
+		opacity: 1;
+		transition: 0.2s ease-out;
+	}
+
+	&-right {
+		background: $base-green;
+		border-top-left-radius: 10%;
+		border-bottom-left-radius: 10%;
+		opacity: 1;
+		transition: 0.2s ease-out;
+	}
+}

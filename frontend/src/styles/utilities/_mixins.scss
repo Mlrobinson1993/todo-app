@@ -1,0 +1,51 @@
+/* Flex displays */
+@mixin flexCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flexSpaceAround {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+@mixin flexSpaceBetween {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Media Queries */
+$breakpoints-down: (
+	//MAX WIDTHS
+		small: 31.1875em,
+	medium: 43.6975em,
+	large: 62.4375em,
+	xlarge: 87.4375em
+);
+
+$breakpoints-up: (
+	//MIN WIDTHS
+		small: 31.25em,
+	medium: 43.75em,
+	large: 62.5em,
+	xlarge: 87.5em
+);
+
+@mixin breakpoint-up($size) {
+	$breakpoint-value: map-get($breakpoints-up, $size);
+
+	@media screen and (min-width: $breakpoint-value) {
+		@content;
+	}
+}
+
+@mixin breakpoint-down($size) {
+	$breakpoint-value: map-get($breakpoints-down, $size);
+
+	@media screen and (max-width: $breakpoint-value) {
+		@content;
+	}
+}
